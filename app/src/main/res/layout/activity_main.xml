@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="330dp"
+        android:background="#FF7B1D"
+
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+
+        android:padding="24dp">
+
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/Vector" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="DIÁRIO DE SABORES"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+
+
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+
+        android:gravity="center"
+        android:orientation="vertical"
+
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="24dp"
+            android:text="Bem vindo de volta!"
+
+            android:textColor="@android:color/black"
+            android:textSize="26sp"
+
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="5dp"
+
+            android:text="Logue para continuar"
+            android:textColor="#8E8A8A"
+            android:textSize="16sp"
+            android:textStyle="bold"
+
+
+            />
+
+
+        <EditText
+
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/campo_fundo"
+            android:drawableStart="@drawable/email"
+            android:paddingStart="10dp"
+            android:drawablePadding="8dp"
+            android:hint="Email"
+
+            android:inputType="textEmailAddress" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/campo_fundo"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:drawableStart="@drawable/lock"
+            android:drawableEnd="@drawable/eyeslash"
+            android:hint="Senha"
+            android:drawablePadding="8dp"
+            android:inputType="textPassword" />
+
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp"
+            android:text="Esqueceu a senha?"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#FF7B1D"
+            android:text="Entrar"
+            android:textColor="#000000" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
