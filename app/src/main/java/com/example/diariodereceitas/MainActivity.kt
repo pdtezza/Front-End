@@ -22,4 +22,8 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
+
+    class HomeActivity {
+
+    }
 }
