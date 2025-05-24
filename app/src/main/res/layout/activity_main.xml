@@ -52,7 +52,7 @@
                         <ImageButton
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:background="@null"
+                            android:background="FFF"
                             android:contentDescription="Bolo de Limão"
                             android:scaleType="centerCrop"
                             android:src="@drawable/bololimao" />

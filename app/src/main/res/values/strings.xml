@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">teste</string>
+
+    <string name="app_name">Diario de Receitas</string>
+
+
+    <string name="receita_bolo_fuba">
+            Ingredientes:\n
+            - 2 xícaras de fubá\n
+            - 1 xícara de açúcar\n
+            - 1/2 xícara de manteiga derretida\n
+            - 4 ovos\n
+            - 1 colher de sopa de fermento em pó\n
+            - 1 colher de sopa de sal\n
+            - 1 xícara de leite\n\n
+            Modo de preparo:\n
+            1. Pré-aqueça o forno a 180ºC.\n
+            2. Em uma tigela grande, misture o fubá, o açúcar e o sal.\n
+            3. Adicione a manteiga derretida, os ovos e o leite. Misture bem.\n
+            4. Acrescente o fermento e misture novamente.\n
+            5. Despeje a massa em uma forma untada.\n
+            6. Asse por cerca de 40 minutos ou até o palito sair limpo.\n
+            7. Deixe esfriar antes de servir.\n\n
+            Dicas:\n
+            - Use fubá de boa qualidade para melhor sabor.\n
+            - Não mexa demais a massa.\n
+            - Pode adicionar frutas secas ou nozes.
+
+        </string>
+
 </resources>
