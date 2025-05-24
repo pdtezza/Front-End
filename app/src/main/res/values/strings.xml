@@ -1,8 +1,11 @@
 <resources>
-    <string name="app_name">teste</string>
 
     <string name="app_name">Diario de Receitas</string>
 
+        <string name="titulo_receita">Título</string>
+        <string name="hint_receita">Escreva a sua receita</string>
+        <string name="ReceitaPrivada">Receita Privada</string>
+        <string name="Concluir">Concluir</string>
 
     <string name="receita_bolo_fuba">
             Ingredientes:\n

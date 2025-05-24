@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ReceitaActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingBottom="8dp">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/setaesquerda"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Voltar" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titulo_receita"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginEnd="70dp"/>
+
+                <ImageButton
+                    android:id="@+id/btnEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/clipanexo"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Editar"
+                    android:layout_marginEnd="12dp"/>
+
+                <ImageButton
+                    android:id="@+id/btnShare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/camera"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Compartilhar" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edtReceita"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="top|start"
+                android:hint="@string/hint_receita"
+                android:inputType="textMultiLine"
+                android:minLines="5"
+                android:padding="8dp"
+                android:scrollbars="vertical"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ReceitaPrivada"
+                android:textSize="16sp"
+                android:layout_marginEnd="8dp" />
+
+            <Switch
+                android:id="@+id/switchPrivado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:contentDescription="Alternar privacidade da receita" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnConcluir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Concluir"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:textColor="@android:color/white"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp" />
+    </LinearLayout>
+</LinearLayout>
