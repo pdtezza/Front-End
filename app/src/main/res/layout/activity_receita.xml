@@ -6,7 +6,6 @@
     android:orientation="vertical"
     tools:context=".ReceitaActivity">
 
-    <!-- ScrollView com peso para ocupar o espaço superior -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -18,7 +17,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Top bar com título e ícones -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,7 +68,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <!-- Rodapé fixo com centralização -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -78,7 +75,6 @@
         android:padding="16dp"
         android:gravity="center_horizontal">
 
-        <!-- Switch centralizado -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -100,7 +96,6 @@
                 android:contentDescription="Alternar privacidade da receita" />
         </LinearLayout>
 
-        <!-- Botão centralizado -->
         <Button
             android:id="@+id/btnConcluir"
             android:layout_width="wrap_content"
