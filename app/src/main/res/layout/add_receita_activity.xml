@@ -45,6 +45,7 @@
             android:orientation="vertical">
 
             <GridLayout
+                android:id="@+id/gridLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -54,6 +55,7 @@
                 android:rowOrderPreserved="false">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/card_bolo_limao"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -88,6 +90,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/card_bolo_laranja"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -122,6 +125,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/card_brigadeiro_trufado"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -156,6 +160,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/card_lasanha"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -189,7 +194,10 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+
+
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/card_receitas_privadas"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -240,6 +248,7 @@
         android:layout_alignParentBottom="true">
 
         <ImageButton
+            android:id="@+id/button_nav_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -249,6 +258,7 @@
             app:tint="#000"/>
 
         <ImageButton
+            android:id="@+id/button_nav_search"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -258,6 +268,7 @@
             app:tint="#000"/>
 
         <ImageButton
+            android:id="@+id/button_nav_add"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -267,6 +278,7 @@
             app:tint="#000"/>
 
         <ImageButton
+            android:id="@+id/button_nav_favorites"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -276,6 +288,7 @@
             app:tint="#000"/>
 
         <ImageButton
+            android:id="@+id/button_nav_profile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

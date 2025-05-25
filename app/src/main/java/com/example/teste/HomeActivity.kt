@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
-    private lateinit var recipeAdapter: RecipeAdapter
+    private lateinit var recipeAdapter: com.example.teste.RecipeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,9 +21,10 @@ class HomeActivity : AppCompatActivity() {
             Recipe("Bolo de Laranja", R.drawable.bolo_laranja),
             Recipe("Brigadeiro Trufado", R.drawable.brigadeiro),
             Recipe("Lasanha", R.drawable.lasanha)
+            Recipe("Privado", R.drawable.cadeado)
         )
 
-        recipeAdapter = RecipeAdapter(recipes)
+        recipeAdapter = com.example.teste.RecipeAdapter(recipes)
         recyclerView.adapter = recipeAdapter
     }
 }

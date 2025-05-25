@@ -4,26 +4,29 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF7B1D"
+        android:padding="16dp"
+        android:text="Para você"
+        android:textColor="#000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/titleText"
         android:layout_above="@+id/bottomBar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/titleText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FF7B1D"
-                android:padding="16dp"
-                android:text="Para você"
-                android:textColor="#000"
-                android:textSize="18sp"
-                android:textStyle="bold" />
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -187,44 +190,54 @@
         android:layout_alignParentBottom="true">
 
         <ImageButton
+            android:id="@+id/button_nav_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/casa"
-            android:contentDescription="Botão home" />
+            android:contentDescription="Botão home"
+            app:tint="#000"/>
 
         <ImageButton
+            android:id="@+id/button_nav_search"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/pesquisa"
-            android:contentDescription="Botão de pesquisa" />
+            android:contentDescription="Botão de pesquisa"
+            app:tint="#000"/>
 
         <ImageButton
+            android:id="@+id/button_nav_add"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/mais"
-            android:contentDescription="Botão mais" />
+            android:contentDescription="Botão mais"
+            app:tint="#000"/>
 
         <ImageButton
+            android:id="@+id/button_nav_favorites"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/coracao"
-            android:contentDescription="Botão de favoritos" />
+            android:contentDescription="Botão de favoritos"
+            app:tint="#000"/>
 
         <ImageButton
+            android:id="@+id/button_nav_profile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/usuario"
-            android:contentDescription="Botão do perfil" />
+            android:contentDescription="Botão do perfil"
+            app:tint="#000"/>
 
     </LinearLayout>
 
