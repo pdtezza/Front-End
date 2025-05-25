@@ -4,43 +4,45 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+
+    <FrameLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF7B1D"
+        android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/buttonIcon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="start|center_vertical"
+            android:background="@null"
+            android:contentDescription="Botão do perfil"
+            android:src="@drawable/usuario"
+            app:tint="#000" />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Minhas receitas"
+            android:textColor="#000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/topBar"
         android:layout_above="@+id/bottomBar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#FF7B1D"
-                android:padding="16dp">
-
-                <ImageButton
-                    android:id="@+id/buttonIcon"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="start|center_vertical"
-                    android:background="@null"
-                    android:contentDescription="Botão do perfil"
-                    android:src="@drawable/usuario"
-                    app:tint="#000" />
-
-                <TextView
-                    android:id="@+id/titleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Minhas receitas"
-                    android:textColor="#000"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </FrameLayout>
 
             <GridLayout
                 android:layout_width="match_parent"
@@ -81,8 +83,6 @@
                             android:text="Bolo de Limão"
                             android:textColor="#000"
                             android:textSize="14sp" />
-
-
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -227,6 +227,7 @@
             </GridLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
     <LinearLayout
