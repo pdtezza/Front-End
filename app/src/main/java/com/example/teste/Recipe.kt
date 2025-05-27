@@ -1,6 +1,6 @@
 package com.example.teste
 
-data class recipe(
+data class Recipe(
     val name: String,
     val imageResId: Int
 )

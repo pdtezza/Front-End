@@ -6,6 +6,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 
+
 class AddReceitaActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

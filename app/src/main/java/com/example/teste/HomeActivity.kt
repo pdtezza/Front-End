@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.teste.R
+import com.example.teste.Recipe
+
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
@@ -11,16 +14,16 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        setContentView(R.layout.activity_main)
 
-        recyclerView = findViewById(R.id.recipeRecyclerView)
+
         recyclerView.layoutManager = GridLayoutManager(this, 2)
 
         val recipes = listOf(
-            Recipe("Bolo de Limão", R.drawable.bolo_limao),
-            Recipe("Bolo de Laranja", R.drawable.bolo_laranja),
-            Recipe("Brigadeiro Trufado", R.drawable.brigadeiro),
-            Recipe("Lasanha", R.drawable.lasanha)
+            Recipe("Bolo de Limão", R.drawable.bololimao),
+            Recipe("Bolo de Laranja", R.drawable.bololaranja),
+            Recipe("Brigadeiro Trufado", R.drawable.brigadeirotrufado),
+            Recipe("Lasanha", R.drawable.lasanha),
             Recipe("Privado", R.drawable.cadeado)
         )
 

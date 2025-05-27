@@ -9,7 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class RecipeAdapter(private val recipes: List<recipe>) :
+
+class RecipeAdapter(private val recipes: List<Recipe>) :
     RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
     class RecipeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

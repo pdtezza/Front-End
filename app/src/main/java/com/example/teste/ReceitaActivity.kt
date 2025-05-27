@@ -8,6 +8,7 @@ import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+
 class ReceitaActivity : AppCompatActivity() {
 
     private lateinit var edtReceita: EditText
