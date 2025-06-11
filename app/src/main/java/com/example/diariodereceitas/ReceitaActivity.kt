@@ -33,4 +33,3 @@ class ReceitaActivity : AppCompatActivity() {
     }
 }
 
-}

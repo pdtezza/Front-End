@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Diario de Receitas</string>
+<<<<<<< HEAD
 
 
     <string name="receita_bolo_fuba">
@@ -26,4 +27,6 @@
 
     </string>
 
+=======
+>>>>>>> feature/Sabryna
 </resources>
