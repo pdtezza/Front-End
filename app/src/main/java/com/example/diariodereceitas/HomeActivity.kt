@@ -1,29 +1,42 @@
 package com.example.diariodereceitas
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
 class HomeActivity : AppCompatActivity() {
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var recipeAdapter: RecipeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        recyclerView = findViewById(R.id.recipeRecyclerView)
-        recyclerView.layoutManager = GridLayoutManager(this, 2)
+        val btnBoloLimao = findViewById<ImageButton>(R.id.btnBoloLimao)
+        val btnBoloLaranja = findViewById<ImageButton>(R.id.btnBoloLaranja)
+        val btnBrigadeiroTrufado = findViewById<ImageButton>(R.id.btnBrigadeirotrufado)
+        val btnLasanha = findViewById<ImageButton>(R.id.btnLasanha)
 
-        val recipes = listOf(
-            Recipe("Bolo de Limão", R.drawable.bolo_limao),
-            Recipe("Bolo de Laranja", R.drawable.bolo_laranja),
-            Recipe("Brigadeiro Trufado", R.drawable.brigadeiro),
-            Recipe("Lasanha", R.drawable.lasanha)
-        )
+        // Clique no botão de Bolo de Limão
+        btnBoloLimao.setOnClickListener {
+            abrirTelaReceita("Bolo de Limão")
+        }
 
-        recipeAdapter = RecipeAdapter(recipes)
-        recyclerView.adapter = recipeAdapter
+        btnBoloLaranja.setOnClickListener {
+            abrirTelaReceita("Bolo de Laranja")
+        }
+
+        btnBrigadeiroTrufado.setOnClickListener {
+            abrirTelaReceita("Brigadeiro Trufado")
+        }
+
+        btnLasanha.setOnClickListener {
+            abrirTelaReceita("Lasanha")
+        }
+    }
+
+    private fun abrirTelaReceita(nome: String) {
+        val intent = Intent(this, ReceitaActivity::class.java)
+        intent.putExtra("nomeReceita", nome)
+        startActivity(intent)
     }
 }
