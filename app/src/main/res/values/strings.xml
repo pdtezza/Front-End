@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Diario de Receitas</string>
-<<<<<<< HEAD
-
 
     <string name="receita_bolo_fuba">
         Ingredientes:\n
@@ -27,6 +25,4 @@
 
     </string>
 
-=======
->>>>>>> feature/Sabryna
 </resources>
