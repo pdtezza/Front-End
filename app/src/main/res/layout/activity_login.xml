@@ -5,22 +5,16 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".LoginActivity"
     android:orientation="vertical">
 
-
     <LinearLayout
         android:layout_width="match_parent"
-
         android:layout_height="330dp"
         android:background="#FF7B1D"
-
         android:gravity="center_horizontal"
         android:orientation="vertical"
-
         android:padding="24dp">
-
 
         <ImageView
             android:layout_width="150dp"
@@ -36,22 +30,14 @@
             android:text="DIÁRIO DE RECEITAS"
             android:textColor="@android:color/black"
             android:textSize="24sp"
-            android:textStyle="bold"
-
-
-            />
-
-
+            android:textStyle="bold"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-
-        android:layout_height="match_parent"
-
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-
         android:padding="24dp">
 
         <TextView
@@ -60,31 +46,21 @@
             android:layout_gravity="start"
             android:layout_marginTop="24dp"
             android:text="Bem vindo de volta!"
-
             android:textColor="@android:color/black"
             android:textSize="26sp"
-
-            android:textStyle="bold"
-
-            />
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:layout_marginTop="5dp"
-
             android:text="Logue para continuar"
             android:textColor="#8E8A8A"
             android:textSize="16sp"
-            android:textStyle="bold"
-
-
-            />
-
+            android:textStyle="bold"/>
 
         <EditText
-
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="35dp"
@@ -95,7 +71,6 @@
             android:paddingStart="10dp"
             android:drawablePadding="8dp"
             android:hint="Email"
-
             android:inputType="textEmailAddress" />
 
         <FrameLayout
@@ -125,7 +100,6 @@
                 android:contentDescription="Mostrar senha" />
         </FrameLayout>
 
-
         <TextView
             android:id="@+id/esqueceuSenhaText"
             android:layout_width="wrap_content"
@@ -134,8 +108,7 @@
             android:layout_marginTop="8dp"
             android:text="Esqueceu a senha?"
             android:textColor="#000000"
-            android:textSize="14sp"
-            />
+            android:textSize="14sp"/>
 
         <Button
             android:id="@+id/loginButton"
@@ -147,8 +120,15 @@
             android:text="Entrar"
             android:textColor="#000000" />
 
-
+        <!-- LINK PARA CADASTRO -->
+        <TextView
+            android:id="@+id/criarContaText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Não tem conta? Cadastre-se"
+            android:textColor="#FF7B1D"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"/>
     </LinearLayout>
-
-
 </LinearLayout>
