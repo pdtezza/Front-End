@@ -23,14 +23,20 @@
             android:textStyle="bold"/>
     </FrameLayout>
 
-    <!-- Lista dinâmica de receitas -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewReceitas"
+    <!-- Lista dinâmica de receitas com SwipeRefresh -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/topBar"
-        android:layout_above="@+id/bottomBar"
-        android:padding="16dp"/>
+        android:layout_above="@+id/bottomBar">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewReceitas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <!-- Barra inferior -->
     <LinearLayout
@@ -78,7 +84,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@null"
-            android:src="@drawable/coracao"
+            android:src="@drawable/coracao2"
             android:contentDescription="Botão de favoritos"
             app:tint="#000"/>
 

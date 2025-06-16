@@ -23,6 +23,8 @@ androidx-constraintlayout = { group = "androidx.constraintlayout", name = "const
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
 firebase-auth = { module = "com.google.firebase:firebase-auth", version = "23.2.1" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version = "4.11.0" }
+glide = { module = "com.github.bumptech.glide:glide", version = "4.16.0" }
+swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version = "1.1.0" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

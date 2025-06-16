@@ -3,8 +3,11 @@ package com.example.diariodereceitas
 data class Receita(
     val id: String,
     val nome: String,
-    val imagemUrl: String?, // ou só String se sempre tiver imagem
+    val imagemUrl: String?,
     val likes: Int,
     val visualizacoes: Int,
-    val autor: String
+    val autor: String,
+    val ingredientes: String,
+    val modoPreparo: String,
+    val dicas: String,
 )

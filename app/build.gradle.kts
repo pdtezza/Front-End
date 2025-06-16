@@ -46,6 +46,8 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.auth.ktx)
+    implementation(libs.glide)
+    implementation(libs.swiperefreshlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -53,6 +55,8 @@ dependencies {
     // Firebase Auth
 
     implementation("com.google.firebase:firebase-auth:23.2.1")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("com.google.firebase:firebase-storage-ktx:20.3.0")
 
 }
 
