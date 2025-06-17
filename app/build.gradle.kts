@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    id("jacoco")  // Plugin JaCoCo
 }
 
 android {
@@ -26,16 +27,65 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     buildFeatures {
         viewBinding = true
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+jacoco {
+    toolVersion = "0.8.8"
+}
+
+tasks.register<JacocoReport>("jacocoTestReport") {
+    dependsOn("testDebugUnitTest")
+
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+
+    val fileFilter = listOf(
+        "**/R.class",
+        "**/R$*.class",
+        "**/BuildConfig.*",
+        "**/Manifest*.*",
+        "**/*Test*.*",
+        "android/**/*.*"
+    )
+
+    classDirectories.setFrom(
+        fileTree("${buildDir}/intermediates/javac/debug/classes") {
+            exclude(fileFilter)
+        },
+        fileTree("${buildDir}/tmp/kotlin-classes/debug") {
+            exclude(fileFilter)
+        }
+    )
+
+    sourceDirectories.setFrom(
+        files(
+            "${project.projectDir}/src/main/java",
+            "${project.projectDir}/src/main/kotlin"
+        )
+    )
+
+    executionData.setFrom(
+        fileTree(buildDir) {
+            include(
+                "jacoco/testDebugUnitTest.exec"
+            )
+        }
+    )
 }
 
 dependencies {
@@ -52,13 +102,11 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // Firebase Auth
-
+    // Firebase
     implementation("com.google.firebase:firebase-auth:23.2.1")
     implementation("com.github.bumptech.glide:glide:4.16.0")
-    implementation ("com.google.firebase:firebase-storage-ktx:20.3.0")
+    implementation("com.google.firebase:firebase-storage-ktx:20.3.0")
 
 }
 
-// No KTS, use apply(plugin = ...) no final do arquivo:
 apply(plugin = "com.google.gms.google-services")

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- TopBar -->
+    <!-- TopBar com título -->
     <FrameLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
@@ -17,29 +17,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Para você"
+            android:text="Minhas Receitas Privadas"
             android:textColor="#000"
             android:textSize="18sp"
             android:textStyle="bold" />
     </FrameLayout>
 
-    <!-- SwipeRefresh + RecyclerView -->
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefresh"
+    <!-- RecyclerView com as privadas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewReceitas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_below="@id/topBar"
-        android:layout_above="@id/bottomBar">
+        android:layout_above="@id/bottomBar"
+        android:padding="16dp"
+        android:clipToPadding="false" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewReceitas"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            android:clipToPadding="false" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    <!-- ProgressBar centralizado -->
+    <!-- ProgressBar centralizada -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -52,10 +46,10 @@
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
         android:background="#FF7B1D"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_alignParentBottom="true">
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/button_nav_home"
@@ -64,6 +58,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:src="@drawable/casa"
+            android:contentDescription="Home"
             app:tint="#000" />
 
         <ImageButton

@@ -26,6 +26,12 @@
         <activity android:name=".AddReceitaActivity" />
         <activity android:name=".ReceitaDetalheActivity" />
         <activity android:name=".FavoritosActivity"/>
+        <activity android:name=".PesquisaActivity"/>
+        <activity android:name=".PerfilPublicoActivity"/>
+        <activity android:name=".MeuPerfilActivity" />
+        <activity android:name=".MinhasPrivadasActivity" />
+        <activity android:name=".EditarReceitaActivity" />
+
     </application>
 
 </manifest>

@@ -7,7 +7,9 @@ data class Receita(
     val likes: Int,
     val visualizacoes: Int,
     val autor: String,
+    val autorId: String,
     val ingredientes: String,
     val modoPreparo: String,
     val dicas: String,
+    val privado: Boolean
 )

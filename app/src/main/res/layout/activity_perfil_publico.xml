@@ -4,42 +4,79 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- TopBar -->
-    <FrameLayout
-        android:id="@+id/topBar"
+    <!-- Botão Voltar -->
+    <ImageButton
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@null"
+        android:contentDescription="Voltar"
+        android:src="@drawable/setaesquerda"
+        app:tint="#000" />
+
+    <!-- Header Centralizado com Inicial, Nome e Quantidade de Receitas -->
+    <LinearLayout
+        android:id="@+id/headerPerfil"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FF7B1D"
-        android:padding="16dp">
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:layout_below="@id/buttonBack">
+
+        <FrameLayout
+            android:layout_width="60dp"
+            android:layout_height="60dp">
+
+            <View
+                android:id="@+id/userCircle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_orange" />
+
+            <TextView
+                android:id="@+id/userInitial"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="K"
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </FrameLayout>
 
         <TextView
-            android:id="@+id/titleText"
+            android:id="@+id/usernameText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Para você"
+            android:layout_marginTop="8dp"
+            android:text="Nome do Usuário"
             android:textColor="#000"
             android:textSize="18sp"
             android:textStyle="bold" />
-    </FrameLayout>
 
-    <!-- SwipeRefresh + RecyclerView -->
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefresh"
+        <TextView
+            android:id="@+id/textQtdReceitas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 receitas publicadas"
+            android:textColor="#000"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp" />
+    </LinearLayout>
+
+    <!-- RecyclerView com as Receitas do Usuário -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewUserReceitas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/topBar"
-        android:layout_above="@id/bottomBar">
+        android:layout_height="0dp"
+        android:layout_below="@id/headerPerfil"
+        android:layout_above="@id/bottomBar"
+        android:padding="8dp"
+        android:clipToPadding="false" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewReceitas"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            android:clipToPadding="false" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-    <!-- ProgressBar centralizado -->
+    <!-- ProgressBar centralizada -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -47,15 +84,15 @@
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-    <!-- Bottom Navigation Bar -->
+    <!-- Bottom Bar -->
     <LinearLayout
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
         android:background="#FF7B1D"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_alignParentBottom="true">
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/button_nav_home"

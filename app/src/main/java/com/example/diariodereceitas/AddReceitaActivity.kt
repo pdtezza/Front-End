@@ -34,13 +34,6 @@ class AddReceitaActivity : AppCompatActivity() {
             startActivityForResult(intent, PICK_IMAGE_REQUEST)
         }
 
-        binding.btnAnexo.setOnClickListener {
-            Toast.makeText(this, "Funcionalidade de anexo ainda não implementada.", Toast.LENGTH_SHORT).show()
-        }
-
-
-
-
         binding.btnSalvar.setOnClickListener {
             val titulo = binding.edtTitulo.text.toString().trim()
             val ingredientesText = binding.edtIngredientes.text.toString().trim()
@@ -57,8 +50,15 @@ class AddReceitaActivity : AppCompatActivity() {
             val modoPreparo = modoPreparoText.split("\n").filter { it.isNotBlank() }
             val dicas = dicasText.split("\n").filter { it.isNotBlank() }
 
-            val usuarioId = "user123" // Substitua por id do usuário logado
-            val usuarioNome = "Pedro" // Substitua por nome do usuário logado
+            // Recuperando usuário logado do SharedPreferences
+            val sharedPref = getSharedPreferences("AppPrefs", MODE_PRIVATE)
+            val usuarioId = sharedPref.getString("usuarioId", "") ?: ""
+            val usuarioNome = sharedPref.getString("usuarioNome", "") ?: "Usuário"
+
+            if (usuarioId.isEmpty()) {
+                Toast.makeText(this, "Usuário não identificado. Faça login primeiro!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             if (fotoUri != null) {
                 uploadFotoEEnviarReceita(
@@ -79,8 +79,6 @@ class AddReceitaActivity : AppCompatActivity() {
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
             fotoUri = data?.data
             if (fotoUri != null) {
-                binding.imgPreview.setImageURI(fotoUri)
-                binding.imgPreview.visibility = View.VISIBLE
                 Toast.makeText(this, "Foto selecionada!", Toast.LENGTH_SHORT).show()
             }
         }
@@ -131,11 +129,10 @@ class AddReceitaActivity : AppCompatActivity() {
         json.put("ingredientes", JSONArray(ingredientes))
         json.put("modoPreparo", JSONArray(modoPreparo))
         json.put("dicas", JSONArray(dicas))
-        json.put("usuarioId", usuarioId)
-        json.put("usuarioNome", usuarioNome)
+        json.put("usuarioNome", usuarioNome)      // Nome do usuário (para o backend salvar)
         json.put("fotoUrl", fotoUrl)
         json.put("privado", privada)
-        json.put("autorId", usuarioId)
+        json.put("autorId", usuarioId)            // <<< Aqui fica o autorId certo!
         json.put("likes", 0)
         json.put("visualizacoes", 0)
 

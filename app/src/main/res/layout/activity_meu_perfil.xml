@@ -4,40 +4,52 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- TopBar -->
-    <FrameLayout
-        android:id="@+id/topBar"
+    <!-- Header com círculo e título -->
+    <LinearLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FF7B1D"
-        android:padding="16dp">
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center_vertical">
+
+        <View
+            android:id="@+id/userCircle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/circle_orange" />
+
+        <TextView
+            android:id="@+id/userInitial"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="C"
+            android:textColor="#000"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginStart="-40dp" />
 
         <TextView
             android:id="@+id/titleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Para você"
-            android:textColor="#000"
+            android:layout_marginStart="16dp"
+            android:text="Minhas receitas"
             android:textSize="18sp"
+            android:textColor="#000"
             android:textStyle="bold" />
-    </FrameLayout>
+    </LinearLayout>
 
-    <!-- SwipeRefresh + RecyclerView -->
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefresh"
+    <!-- RecyclerView para o adapter com pasta + públicas -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewMinhasReceitas"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/topBar"
-        android:layout_above="@id/bottomBar">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewReceitas"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            android:clipToPadding="false" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        android:layout_height="0dp"
+        android:layout_below="@id/header"
+        android:layout_above="@id/bottomBar"
+        android:padding="8dp"
+        android:clipToPadding="false" />
 
     <!-- ProgressBar centralizado -->
     <ProgressBar
@@ -52,10 +64,10 @@
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
         android:background="#FF7B1D"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_alignParentBottom="true">
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/button_nav_home"

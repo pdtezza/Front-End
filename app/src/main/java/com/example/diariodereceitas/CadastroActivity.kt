@@ -1,4 +1,5 @@
 package com.example.diariodereceitas
+
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
@@ -65,6 +66,20 @@ class CadastroActivity : AppCompatActivity() {
             override fun onResponse(call: Call, response: Response) {
                 runOnUiThread {
                     if (response.isSuccessful) {
+                        val responseBody = response.body?.string()
+                        val jsonResponse = JSONObject(responseBody)
+
+                        val usuarioId = jsonResponse.optString("id", "")
+                        val usuarioNome = jsonResponse.optString("nome", "")
+
+                        if (usuarioId.isNotEmpty()) {
+                            val sharedPref = getSharedPreferences("AppPrefs", MODE_PRIVATE)
+                            sharedPref.edit()
+                                .putString("usuarioId", usuarioId)
+                                .putString("usuarioNome", usuarioNome)
+                                .apply()
+                        }
+
                         Toast.makeText(this@CadastroActivity, "Cadastro realizado! Faça login.", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this@CadastroActivity, LoginActivity::class.java))
                         finish()

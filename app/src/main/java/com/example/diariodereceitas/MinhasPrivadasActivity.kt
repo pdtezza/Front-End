@@ -6,57 +6,58 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.diariodereceitas.databinding.ActivityHomeBinding
+import com.example.diariodereceitas.databinding.ActivityMinhasPrivadasBinding
 import okhttp3.*
 import org.json.JSONArray
 import java.io.IOException
 
-class FavoritosActivity : AppCompatActivity() {
+class MinhasPrivadasActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityHomeBinding
+    private lateinit var binding: ActivityMinhasPrivadasBinding
     private val receitas = mutableListOf<Receita>()
-    private var favoritosSet: Set<String> = emptySet()
     private lateinit var adapter: ReceitaAdapter
+    private var favoritosSet: Set<String> = emptySet()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
+        binding = ActivityMinhasPrivadasBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.recyclerViewReceitas.layoutManager = GridLayoutManager(this, 2)
-        adapter = ReceitaAdapter(receitas, favoritosSet)
+        adapter = ReceitaAdapter(receitas, favoritosSet, mostrarLike = false)  // <<<<<< ALTERADO AQUI
         binding.recyclerViewReceitas.adapter = adapter
 
         binding.bottomBar.findViewById<View>(R.id.button_nav_home).setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
             finish()
+        }
+        binding.bottomBar.findViewById<View>(R.id.button_nav_search).setOnClickListener {
+            startActivity(Intent(this, PesquisaActivity::class.java))
         }
         binding.bottomBar.findViewById<View>(R.id.button_nav_add).setOnClickListener {
             startActivity(Intent(this, AddReceitaActivity::class.java))
         }
-
+        binding.bottomBar.findViewById<View>(R.id.button_nav_favorites).setOnClickListener {
+            startActivity(Intent(this, FavoritosActivity::class.java))
+        }
         binding.bottomBar.findViewById<View>(R.id.button_nav_profile).setOnClickListener {
             startActivity(Intent(this, MeuPerfilActivity::class.java))
-            finish()
         }
 
-        binding.bottomBar.findViewById<View>(R.id.button_nav_search).setOnClickListener {
-            startActivity(Intent(this, PesquisaActivity::class.java))
+        binding.progressBar.visibility = View.VISIBLE
+        buscarFavoritosUsuario {
+            favoritosSet = it
+            adapter.favoritosSet = favoritosSet
+            carregarPrivadasDoUsuario()
         }
-
-        // Muda o título
-        binding.titleText.text = "Favoritos"
-
-        carregarFavoritos()
     }
 
-    private fun carregarFavoritos() {
-        binding.progressBar.visibility = View.VISIBLE
-
+    private fun buscarFavoritosUsuario(onResult: (Set<String>) -> Unit) {
         val sharedPref = getSharedPreferences("AppPrefs", MODE_PRIVATE)
         val usuarioId = sharedPref.getString("usuarioId", "") ?: ""
 
         if (usuarioId.isEmpty()) {
-            binding.progressBar.visibility = View.GONE
+            onResult(emptySet())
             return
         }
 
@@ -67,7 +68,46 @@ class FavoritosActivity : AppCompatActivity() {
             override fun onFailure(call: Call, e: IOException) {
                 runOnUiThread {
                     binding.progressBar.visibility = View.GONE
-                    Toast.makeText(this@FavoritosActivity, "Erro ao buscar favoritos", Toast.LENGTH_SHORT).show()
+                    onResult(emptySet())
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                if (response.isSuccessful) {
+                    val set = mutableSetOf<String>()
+                    val jsonArray = JSONArray(response.body?.string())
+                    for (i in 0 until jsonArray.length()) {
+                        set.add(jsonArray.getString(i))
+                    }
+                    runOnUiThread { onResult(set) }
+                } else {
+                    runOnUiThread {
+                        binding.progressBar.visibility = View.GONE
+                        onResult(emptySet())
+                    }
+                }
+            }
+        })
+    }
+
+    private fun carregarPrivadasDoUsuario() {
+        val sharedPref = getSharedPreferences("AppPrefs", MODE_PRIVATE)
+        val usuarioId = sharedPref.getString("usuarioId", "") ?: ""
+
+        if (usuarioId.isEmpty()) {
+            binding.progressBar.visibility = View.GONE
+            Toast.makeText(this, "Usuário não identificado", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val url = "${ApiConfig.BASE_URL}/receitas/minhasPrivadas?clienteId=$usuarioId"
+        val request = Request.Builder().url(url).get().build()
+
+        OkHttpClient().newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                runOnUiThread {
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(this@MinhasPrivadasActivity, "Erro ao carregar privadas", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -77,9 +117,9 @@ class FavoritosActivity : AppCompatActivity() {
                 }
 
                 if (response.isSuccessful) {
-                    val listaReceitas = mutableListOf<Receita>()
-                    val respStr = response.body?.string()
-                    val jsonArray = JSONArray(respStr)
+                    val jsonArray = JSONArray(response.body?.string())
+                    val novasReceitas = mutableListOf<Receita>()
+
                     for (i in 0 until jsonArray.length()) {
                         val obj = jsonArray.getJSONObject(i)
                         val receita = Receita(
@@ -94,17 +134,13 @@ class FavoritosActivity : AppCompatActivity() {
                             modoPreparo = obj.optString("modoPreparo", ""),
                             dicas = obj.optString("dicas", ""),
                             privado = obj.optBoolean("privado", false)
-
                         )
-                        listaReceitas.add(receita)
+                        novasReceitas.add(receita)
                     }
 
                     runOnUiThread {
                         receitas.clear()
-                        receitas.addAll(listaReceitas)
-
-                        // Marca todos como favoritos
-                        favoritosSet = receitas.map { it.id }.toSet()
+                        receitas.addAll(novasReceitas)
                         adapter.favoritosSet = favoritosSet
                         adapter.notifyDataSetChanged()
                     }

@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFF">
+    android:background="#FFFFFF">
 
-    <!-- TOPO CUSTOMIZADO -->
+    <!-- TOPO -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -16,8 +16,7 @@
         android:paddingEnd="12dp"
         android:gravity="center_vertical">
 
-
-        <!-- Botão de voltar -->
+        <!-- Botão Voltar -->
         <ImageButton
             android:id="@+id/btnVoltar"
             android:layout_width="32dp"
@@ -27,22 +26,19 @@
             android:contentDescription="Voltar"
             app:tint="#000" />
 
-        <!-- Nome da tela -->
-
+        <!-- Nome da Tela -->
         <TextView
             android:id="@+id/txtTituloTopo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Adicionar Receita"
+            android:text="Editar Receita"
             android:textColor="#000"
             android:textSize="18sp"
             android:textStyle="bold" />
 
-
-
-        <!-- Botão de foto -->
+        <!-- Botão de Foto (Opcional: Pode desativar se não quiser permitir troca de foto) -->
         <ImageButton
             android:id="@+id/btnFoto"
             android:layout_width="32dp"
@@ -53,12 +49,11 @@
             app:tint="#000" />
     </LinearLayout>
 
-    <!-- FORMULÁRIO DE RECEITA -->
+    <!-- FORMULÁRIO -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#FFF"
         android:padding="24dp">
 
         <LinearLayout
@@ -66,7 +61,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Nome da receita -->
+            <!-- Título -->
             <EditText
                 android:id="@+id/edtTitulo"
                 android:layout_width="match_parent"
@@ -74,7 +69,7 @@
                 android:hint="Nome da Receita"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="18dp"/>
+                android:layout_marginBottom="18dp" />
 
             <!-- Ingredientes -->
             <TextView
@@ -82,33 +77,33 @@
                 android:layout_height="wrap_content"
                 android:text="Ingredientes:"
                 android:textStyle="bold"
-                android:textColor="#000"/>
+                android:textColor="#000" />
 
             <EditText
                 android:id="@+id/edtIngredientes"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
-                android:hint="Ex: 2 xícaras de fubá&#10;1 xícara de açúcar"
+                android:hint="1 ingrediente por linha"
                 android:inputType="textMultiLine"
                 android:gravity="top"
-                android:layout_marginBottom="14dp"/>
+                android:layout_marginBottom="14dp" />
 
-            <!-- Modo de preparo -->
+            <!-- Modo de Preparo -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Modo de preparo:"
+                android:text="Modo de Preparo:"
                 android:textStyle="bold"
-                android:textColor="#000"/>
+                android:textColor="#000" />
 
             <EditText
                 android:id="@+id/edtModoPreparo"
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:hint="Ex: 1. Pré-aqueça o forno...&#10;2. Misture os ingredientes..."
+                android:hint="Passos do preparo (1 por linha)"
                 android:inputType="textMultiLine"
                 android:gravity="top"
-                android:layout_marginBottom="14dp"/>
+                android:layout_marginBottom="14dp" />
 
             <!-- Dicas -->
             <TextView
@@ -116,18 +111,18 @@
                 android:layout_height="wrap_content"
                 android:text="Dicas:"
                 android:textStyle="bold"
-                android:textColor="#000"/>
+                android:textColor="#000" />
 
             <EditText
                 android:id="@+id/edtDicas"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:hint="Opcional: use fubá de boa qualidade, etc."
+                android:hint="Opcional: dicas da receita"
                 android:inputType="textMultiLine"
                 android:gravity="top"
-                android:layout_marginBottom="14dp"/>
+                android:layout_marginBottom="14dp" />
 
-            <!-- Switch para Receita Privada -->
+            <!-- Switch Privada -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -141,7 +136,7 @@
                     android:layout_height="wrap_content"
                     android:text="Receita Privada:"
                     android:textColor="#000"
-                    android:textSize="17sp"/>
+                    android:textSize="17sp" />
 
                 <Switch
                     android:id="@+id/switchPrivada"
@@ -158,10 +153,19 @@
                 android:id="@+id/btnSalvar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Concluir"
+                android:text="Salvar Alterações"
                 android:backgroundTint="#FF7B1D"
                 android:textColor="#fff"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
+
+    <!-- ProgressBar centralizada -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
 </LinearLayout>

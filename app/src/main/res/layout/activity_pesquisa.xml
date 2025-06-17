@@ -4,42 +4,53 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- TopBar -->
-    <FrameLayout
-        android:id="@+id/topBar"
+    <!-- Barra de Pesquisa -->
+    <LinearLayout
+        android:id="@+id/searchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
         android:background="#FF7B1D"
-        android:padding="16dp">
+        android:gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/titleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Para você"
-            android:textColor="#000"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </FrameLayout>
-
-    <!-- SwipeRefresh + RecyclerView -->
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefresh"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/topBar"
-        android:layout_above="@id/bottomBar">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewReceitas"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="16dp"
-            android:clipToPadding="false" />
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp">
 
-    <!-- ProgressBar centralizado -->
+            <EditText
+                android:id="@+id/editTextSearch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Procure ideias"
+                android:background="@drawable/search_background"
+                android:paddingStart="40dp"
+                android:textColor="#000"
+                android:textColorHint="#AAA"
+                android:gravity="center_vertical" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center_vertical|start"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/pesquisa"
+                app:tint="#000" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- Grid de Receitas (RecyclerView) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewReceitas"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/searchBar"
+        android:layout_above="@id/bottomBar"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+    <!-- ProgressBar centralizada -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -47,15 +58,15 @@
         android:layout_centerInParent="true"
         android:visibility="gone" />
 
-    <!-- Bottom Navigation Bar -->
+    <!-- Bottom Bar -->
     <LinearLayout
         android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
         android:background="#FF7B1D"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_alignParentBottom="true">
+        android:gravity="center">
 
         <ImageButton
             android:id="@+id/button_nav_home"
@@ -64,6 +75,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:src="@drawable/casa"
+            android:contentDescription="Home"
             app:tint="#000" />
 
         <ImageButton
@@ -73,6 +85,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:src="@drawable/pesquisa"
+            android:contentDescription="Pesquisar"
             app:tint="#000" />
 
         <ImageButton
@@ -82,6 +95,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:src="@drawable/mais"
+            android:contentDescription="Adicionar"
             app:tint="#000" />
 
         <ImageButton
@@ -91,6 +105,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:src="@drawable/coracao2"
+            android:contentDescription="Favoritos"
             app:tint="#000" />
 
         <ImageButton
@@ -100,6 +115,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:src="@drawable/usuario"
+            android:contentDescription="Perfil"
             app:tint="#000" />
     </LinearLayout>
 
